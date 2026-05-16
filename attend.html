@@ -578,6 +578,60 @@ async function loadAttendees() {
 }
 
 /**
+ * Load events into dropdown
+ */
+async function loadEvents() {
+
+    try {
+
+        const response =
+            await fetch(
+                "https://dfa-backend-lilj.onrender.com/api/v1/events"
+            );
+
+        const data =
+            await response.json();
+
+        const select =
+            document.getElementById(
+                'f_event'
+            );
+
+        // Reset dropdown
+        select.innerHTML =
+            '<option value="" disabled selected>Select Event</option>';
+
+        // Backend response structure
+        const events =
+            data.data.events;
+
+        events.forEach(
+            (event) => {
+
+                select.innerHTML += `
+                    <option
+                        value="${event._id}"
+                        data-title="${event.title}"
+                    >
+                        ${event.title}
+                    </option>
+                `;
+
+            }
+        );
+
+    } catch (error) {
+
+        console.log(
+            "Failed to load events",
+            error
+        );
+
+    }
+
+}
+
+/**
  * Ticket badge class
  */
 function ticketClass(t) {
@@ -976,55 +1030,6 @@ document.addEventListener(
 /**
  * Initialize
  */
-/**
- * Load events into dropdown
- */
-async function loadEvents() {
-
-    try {
-
-        const response =
-            await fetch(
-                "https://dfa-backend-lilj.onrender.com/api/v1/events"
-            );
-
-        const data =
-            await response.json();
-
-        const select =
-            document.getElementById(
-                'f_event'
-            );
-
-        // Clear old options
-        select.innerHTML =
-            '<option value="" disabled selected>Select Event</option>';
-
-        data.events.forEach(
-            (event) => {
-
-                select.innerHTML += `
-                    <option
-                        value="${event._id}"
-                        data-title="${event.title}"
-                    >
-                        ${event.title}
-                    </option>
-                `;
-
-            }
-        );
-
-    } catch (error) {
-
-        console.log(
-            "Failed to load events",
-            error
-        );
-
-    }
-
-}
 loadEvents();
 loadAttendees();
 
