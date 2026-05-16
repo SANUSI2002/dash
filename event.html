@@ -426,7 +426,7 @@ async function loadEvents() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/v1/events"
+            "https://dfa-backend-lilj.onrender.com/api/v1/events"
         );
 
         const result = await response.json();
@@ -643,7 +643,7 @@ loadEvents();
         try {
 
             const response = await fetch(
-                "http://localhost:5000/api/v1/events"
+                "https://dfa-backend-lilj.onrender.com/api/v1/events"
             );
 
             const result = await response.json();
@@ -795,7 +795,7 @@ loadEvents();
         }
 
         const response = await fetch(
-            "http://localhost:5000/api/v1/events",
+            "https://dfa-backend-lilj.onrender.com/api/v1/events",
             {
                 method: "POST",
                 body: formData
@@ -835,7 +835,7 @@ loadEvents();
         try {
 
             const response = await fetch(
-                `http://localhost:5000/api/v1/events/${id}`,
+                `https://dfa-backend-lilj.onrender.com/api/v1/events/${id}`,
                 {
                     method: "DELETE"
                 }

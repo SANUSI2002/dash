@@ -624,7 +624,7 @@ async function loadEventsDropdown() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/v1/events"
+            "https://dfa-backend-lilj.onrender.com/api/v1/events"
         );
 
         const result = await response.json();
@@ -702,7 +702,7 @@ async function saveTicketTier() {
 
         const response = await fetch(
 
-            `http://localhost:5000/api/v1/events/${eventId}/tickets`,
+            `https://dfa-backend-lilj.onrender.com/api/v1/events/${eventId}/tickets`,
 
             {
 
@@ -772,7 +772,7 @@ async function loadTickets() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/v1/events"
+            "https://dfa-backend-lilj.onrender.com/api/v1/events"
         );
 
         const result = await response.json();
