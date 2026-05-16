@@ -987,8 +987,26 @@ async function saveAttendee() {
         if (data.success) {
 
             alert(
-                'Attendee created successfully 🎉'
-            );
+    'Attendee created successfully 🎉'
+);
+
+
+
+/**
+ * Clear form
+ */
+document.getElementById('f_email').value = '';
+document.getElementById('f_phone').value = '';
+document.getElementById('f_note').value = '';
+
+/**
+ * Force refresh UI
+ */
+setTimeout(() => {
+
+    window.location.reload();
+
+}, 500);
 
             closeDrawer();
 
